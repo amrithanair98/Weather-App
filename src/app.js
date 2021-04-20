@@ -4,7 +4,7 @@ const hbs = require("hbs");
 const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 const app = express();
-const port = "https://my-weather-app-nodejs.herokuapp.com/" || 5000;
+const port = process.env.PORT || 5000;
 
 // Define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -93,6 +93,7 @@ app.get("*", (req, res) => {
   });
 });
 
+console.log(process.env);
 app.listen(port, () => {
   console.log("Server is up on port" + port);
 });
